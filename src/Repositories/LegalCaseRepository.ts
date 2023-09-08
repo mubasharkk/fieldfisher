@@ -1,7 +1,7 @@
 import {IDatabase} from "../Providers/IDatabase";
 import {LegalCase} from "../Models/LegalCase";
 
-export class CaseRepository {
+export class LegalCaseRepository {
     private db: IDatabase;
 
     constructor(db: IDatabase) {
