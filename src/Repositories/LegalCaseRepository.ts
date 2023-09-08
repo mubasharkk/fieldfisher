@@ -14,5 +14,12 @@ export class LegalCaseRepository {
         return this.db.create(legalCase) as LegalCase;
     }
 
+    getAllCases() {
+        // sort by lastest case
+        return this.db.readAll().sort((a: LegalCase, b: LegalCase) => {
+            return +new Date(b.startDate) - +new Date(a.startDate);
+        });
+    }
+
 
 }

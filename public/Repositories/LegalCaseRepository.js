@@ -10,6 +10,12 @@ var LegalCaseRepository = /** @class */ (function () {
         // We can add some more business logic here as per business needs
         return this.db.create(legalCase);
     };
+    LegalCaseRepository.prototype.getAllCases = function () {
+        // sort by lastest case
+        return this.db.readAll().sort(function (a, b) {
+            return +new Date(b.startDate) - +new Date(a.startDate);
+        });
+    };
     return LegalCaseRepository;
 }());
 exports.LegalCaseRepository = LegalCaseRepository;

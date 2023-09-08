@@ -10,4 +10,6 @@ export interface IDatabase {
     update(id: string, updatedFields: Partial<Model>): Model | null;
 
     delete(id: string): boolean;
+
+    readAll(): Model[];
 }

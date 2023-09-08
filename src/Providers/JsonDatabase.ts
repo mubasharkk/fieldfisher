@@ -60,7 +60,7 @@ export class JsonDatabase implements IDatabase {
         return true;
     }
 
-    private readAll(): Model[] {
+    public readAll(): Model[] {
         const rawData = fs.readFileSync(this.filePath, 'utf-8');
         return JSON.parse(rawData);
     }

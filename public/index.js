@@ -2,15 +2,27 @@
 // index.ts
 Object.defineProperty(exports, "__esModule", { value: true });
 var LegalCaseRepository_1 = require("./Repositories/LegalCaseRepository");
-var chance_1 = require("chance");
+var LegalCase_1 = require("./Models/LegalCase");
 var repo = new LegalCaseRepository_1.LegalCaseRepository();
-console.log(chance_1.chance);
-for (var i = 0; i < 10; i++) {
-    // const fakeCase = new LegalCase({
-    //     customerName: faker.name({middle: true}),
-    //     startDate: faker.date({year: new Date().getMonth() - 1}),
-    //     isFinished: faker.bool(),
-    // });
-    // console.log("Created:", fakeCase);
+function randomDate(start, end) {
+    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
 }
+var d = randomDate(new Date(2012, 0, 1), new Date());
+var legalCase = repo.addCase(new LegalCase_1.LegalCase({
+    customerName: "Mubashar Khokhar",
+    startDate: randomDate(new Date(2018, 0, 1), new Date()),
+}));
+var legalCase1 = repo.addCase(new LegalCase_1.LegalCase({
+    customerName: "John Doe",
+    startDate: randomDate(new Date(2018, 0, 1), new Date()),
+}));
+var legalCase2 = repo.addCase(new LegalCase_1.LegalCase({
+    customerName: "Max Mustermann",
+    startDate: randomDate(new Date(2018, 0, 1), new Date()),
+}));
+var legalCase3 = repo.addCase(new LegalCase_1.LegalCase({
+    customerName: "Edward Snowden",
+    startDate: new Date(),
+}));
+console.log("Created:", legalCase);
 //# sourceMappingURL=index.js.map
