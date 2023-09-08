@@ -20,9 +20,8 @@ var Model_1 = require("./Model");
 var LegalCase = /** @class */ (function (_super) {
     __extends(LegalCase, _super);
     function LegalCase(initialValues) {
-        if (initialValues === void 0) { initialValues = {}; }
         var _this = _super.call(this, initialValues) || this;
-        _this.customerName = initialValues.customerName || '';
+        _this.customerName = initialValues.customerName;
         _this.startDate = initialValues.startDate || new Date();
         _this.isFinished = initialValues.isFinished || false;
         return _this;
