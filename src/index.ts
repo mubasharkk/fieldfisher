@@ -1,12 +1,9 @@
 // index.ts
 
-import {JsonDatabase} from './Providers/JsonDatabase';
 import {LegalCaseRepository} from "./Repositories/LegalCaseRepository";
 import {LegalCase} from "./Models/LegalCase";
 
-const repo = new LegalCaseRepository(
-    new JsonDatabase('legal_case')
-);
+const repo = new LegalCaseRepository();
 
 const legalCase = repo.addCase(new LegalCase({
     customerName: "Mubashar Khokhar",

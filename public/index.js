@@ -1,13 +1,16 @@
 "use strict";
 // index.ts
 Object.defineProperty(exports, "__esModule", { value: true });
-var JsonDatabase_1 = require("./Providers/JsonDatabase");
 var LegalCaseRepository_1 = require("./Repositories/LegalCaseRepository");
-var LegalCase_1 = require("./Models/LegalCase");
-var repo = new LegalCaseRepository_1.LegalCaseRepository(new JsonDatabase_1.JsonDatabase('legal_case'));
-var legalCase = repo.addCase(new LegalCase_1.LegalCase({
-    customerName: "Mubashar Khokhar",
-    startDate: new Date(),
-}));
-console.log("Created:", legalCase);
+var chance_1 = require("chance");
+var repo = new LegalCaseRepository_1.LegalCaseRepository();
+console.log(chance_1.chance);
+for (var i = 0; i < 10; i++) {
+    // const fakeCase = new LegalCase({
+    //     customerName: faker.name({middle: true}),
+    //     startDate: faker.date({year: new Date().getMonth() - 1}),
+    //     isFinished: faker.bool(),
+    // });
+    // console.log("Created:", fakeCase);
+}
 //# sourceMappingURL=index.js.map
