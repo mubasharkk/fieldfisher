@@ -15,7 +15,7 @@ tsc && node public/server.js
 #### Testing
 
 ```
-tsc && node public/index.js
+npm test
 ```
 
 # Architecture
@@ -37,6 +37,7 @@ tsc && node public/index.js
    repository.
 5. I wasn't able to finish the endpoint `GET api/allcases` with `FileDatabase` but it does function properly
    with `JsonDatabase`.
+6. All data sets are saved in `./data` folder.
 
 #### Why
 
