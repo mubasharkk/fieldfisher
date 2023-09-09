@@ -4,5 +4,8 @@
   },
   "devDependencies": {
     "@types/node": "^20.5.9"
+  },
+  "scripts": {
+    "start": "node public/server.js"
   }
 }
