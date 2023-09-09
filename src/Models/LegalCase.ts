@@ -9,7 +9,7 @@ export class LegalCase extends Model {
     constructor(initialValues: { customerName: string } & Partial<LegalCase>) {
         super(initialValues);
         this.customerName = initialValues.customerName;
-        this.startDate = initialValues.startDate || new Date();
+        this.startDate = new Date(initialValues.startDate);
         this.isFinished = initialValues.isFinished || false;
     }
 }

@@ -21,7 +21,13 @@ const server = http.createServer((req: IncomingMessage, res: ServerResponse) => 
                 body += chunk.toString();
             });
             req.on('end', () => {
-                controller.store(res, JSON.parse(body));
+                if (req.headers['content-type'] == 'application/x-www-form-urlencoded') {
+                    controller.store(res, querystring.parse(body));
+                } else {
+                    // Handle 404 Not Found
+                    res.writeHead(400, {'Content-Type': 'application/json'});
+                    res.end(JSON.stringify({code: 400, message: 'Bad Request'}));
+                }
             });
             break;
         case 'GET/api/allcases':

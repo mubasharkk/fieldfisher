@@ -2,6 +2,7 @@ import {LegalCaseRepository} from "../../Repositories/LegalCaseRepository";
 import {LegalCase} from "../../Models/LegalCase";
 import {ServerResponse} from "http";
 import {ParsedUrlQuery} from "querystring";
+import {start} from "repl";
 
 export class LegalCaseController {
 
@@ -12,14 +13,20 @@ export class LegalCaseController {
         this.repo = new LegalCaseRepository();
     }
 
-    public index(res: ServerResponse<import("http").IncomingMessage>, queryParams: ParsedUrlQuery) {
+    public index(res: ServerResponse, queryParams: ParsedUrlQuery) {
         res.writeHead(200, {'Content-Type': 'application/json'});
         res.end(JSON.stringify(this.repo.getAllCases()));
     }
 
-    public store(res: ServerResponse<import("http").IncomingMessage>, requestParams: object) {
-        const legalCase = new LegalCase(requestParams as LegalCase);
-        const createdCase = this.repo.addCase(legalCase);
+    public store(res: ServerResponse, requestParams: {}) {
+
+        requestParams = {
+            ...requestParams,
+            ...{isFinished: (requestParams['isFinished'] === 'true' || parseInt(requestParams['isFinished']) === 1)}
+        };
+        const createdCase = this.repo.addCase(
+            new LegalCase(requestParams as LegalCase)
+        );
         res.writeHead(201, {'Content-Type': 'application/json'});
         res.end(JSON.stringify(createdCase));
     }

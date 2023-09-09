@@ -22,7 +22,7 @@ var LegalCase = /** @class */ (function (_super) {
     function LegalCase(initialValues) {
         var _this = _super.call(this, initialValues) || this;
         _this.customerName = initialValues.customerName;
-        _this.startDate = initialValues.startDate || new Date();
+        _this.startDate = new Date(initialValues.startDate);
         _this.isFinished = initialValues.isFinished || false;
         return _this;
     }
