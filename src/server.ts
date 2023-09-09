@@ -21,7 +21,9 @@ const server = http.createServer((req: IncomingMessage, res: ServerResponse) => 
                 body += chunk.toString();
             });
             req.on('end', () => {
-                if (req.headers['content-type'] == 'application/x-www-form-urlencoded') {
+                if (req.headers['content-type'] === 'application/json') {
+                    controller.store(res, JSON.parse(body));
+                }else if (req.headers['content-type'] == 'application/x-www-form-urlencoded') {
                     controller.store(res, querystring.parse(body));
                 } else {
                     // Handle 404 Not Found
