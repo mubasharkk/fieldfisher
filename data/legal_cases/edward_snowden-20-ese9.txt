@@ -1,4 +1,0 @@
-fxFileId: edward_snowden-20-ese9
-customerName: Edward Snowden
-startDate: Fri Apr 10 2020 11:22:08 GMT+0200 (Central European Summer Time)
-isFinished: false

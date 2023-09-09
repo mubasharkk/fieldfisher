@@ -1,4 +1,0 @@
-fxFileId: john_doe-19-rkll
-customerName: John Doe
-startDate: Fri Jun 07 2019 18:03:01 GMT+0200 (Central European Summer Time)
-isFinished: false
