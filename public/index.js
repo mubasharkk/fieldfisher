@@ -9,7 +9,7 @@ function randomDate(start, end) {
 }
 var d = randomDate(new Date(2012, 0, 1), new Date());
 var legalCase = repo.addCase(new LegalCase_1.LegalCase({
-    customerName: "Mubashar Khokhar",
+    customerName: "Edward Snowden",
     startDate: randomDate(new Date(2018, 0, 1), new Date()),
 }));
 var legalCase1 = repo.addCase(new LegalCase_1.LegalCase({
@@ -21,8 +21,13 @@ var legalCase2 = repo.addCase(new LegalCase_1.LegalCase({
     startDate: randomDate(new Date(2018, 0, 1), new Date()),
 }));
 var legalCase3 = repo.addCase(new LegalCase_1.LegalCase({
-    customerName: "Edward Snowden",
+    customerName: "Mubashar Khokhar",
     startDate: new Date(),
 }));
 console.log("Created:", legalCase);
+var updatedCase = repo.db.update(legalCase3.fxFileId, {
+    customerName: "Edward Snowden 123",
+});
+console.log("Update:", updatedCase);
+repo.db.delete(legalCase2.fxFileId);
 //# sourceMappingURL=index.js.map

@@ -17,7 +17,6 @@ var server = http.createServer(function (req, res) {
                 body_1 += chunk.toString();
             });
             req.on('end', function () {
-                console.log(req.headers['content-type']);
                 if (req.headers['content-type'] === 'application/json') {
                     controller.store(res, JSON.parse(body_1));
                 }

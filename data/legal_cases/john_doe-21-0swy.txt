@@ -1,0 +1,4 @@
+fxFileId: john_doe-21-0swy
+customerName: John Doe
+startDate: Mon Jul 26 2021 09:59:17 GMT+0200 (Central European Summer Time)
+isFinished: false

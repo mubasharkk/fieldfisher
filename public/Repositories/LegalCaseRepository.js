@@ -1,10 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LegalCaseRepository = void 0;
-var JsonDatabase_1 = require("../Providers/JsonDatabase");
+// import {JsonDatabase} from "../Providers/JsonDatabase";
+var FileDatabase_1 = require("../Providers/FileDatabase");
 var LegalCaseRepository = /** @class */ (function () {
     function LegalCaseRepository() {
-        this.db = new JsonDatabase_1.JsonDatabase('legal_cases');
+        this.db = new FileDatabase_1.FileDatabase('legal_cases');
     }
     LegalCaseRepository.prototype.addCase = function (legalCase) {
         // We can add some more business logic here as per business needs

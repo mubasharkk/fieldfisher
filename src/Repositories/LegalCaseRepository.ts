@@ -1,12 +1,13 @@
 import {IDatabase} from "../Providers/IDatabase";
 import {LegalCase} from "../Models/LegalCase";
-import {JsonDatabase} from "../Providers/JsonDatabase";
+// import {JsonDatabase} from "../Providers/JsonDatabase";
+import {FileDatabase} from "../Providers/FileDatabase";
 
 export class LegalCaseRepository {
-    private db: IDatabase;
+    public db: IDatabase;
 
     constructor() {
-        this.db = new JsonDatabase('legal_cases');
+        this.db = new FileDatabase('legal_cases');
     }
 
     addCase(legalCase: LegalCase): LegalCase {
