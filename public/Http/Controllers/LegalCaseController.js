@@ -24,9 +24,7 @@ var LegalCaseController = /** @class */ (function () {
     };
     LegalCaseController.prototype.store = function (res, requestParams) {
         requestParams = __assign(__assign({}, requestParams), { isFinished: (requestParams['isFinished'] === 'true' || parseInt(requestParams['isFinished']) === 1) });
-        console.log(requestParams);
-        var legalCase = new LegalCase_1.LegalCase(requestParams);
-        var createdCase = this.repo.addCase(legalCase);
+        var createdCase = this.repo.addCase(new LegalCase_1.LegalCase(requestParams));
         res.writeHead(201, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify(createdCase));
     };

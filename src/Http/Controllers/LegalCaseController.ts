@@ -2,7 +2,6 @@ import {LegalCaseRepository} from "../../Repositories/LegalCaseRepository";
 import {LegalCase} from "../../Models/LegalCase";
 import {ServerResponse} from "http";
 import {ParsedUrlQuery} from "querystring";
-import {start} from "repl";
 
 export class LegalCaseController {
 

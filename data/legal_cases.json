@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "id": "f743e66b-a66e-4948-b4de-fc0159e38155",
+    "customerName": "James Doe",
+    "isFinished": false,
+    "startDate": "2023-04-12T00:00:00.000Z"
+  },
+  {
+    "id": "19b84b4c-2a8b-45cc-b840-99554d84f5cc",
+    "customerName": "James Doe",
+    "isFinished": false,
+    "startDate": "2023-04-12T00:00:00.000Z"
+  }
+]

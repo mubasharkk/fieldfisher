@@ -1,5 +1,3 @@
-// IDatabase.ts
-
 import {Model} from '../Models/Model';
 
 export interface IDatabase {
