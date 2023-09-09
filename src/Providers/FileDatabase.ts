@@ -4,6 +4,7 @@ import * as path from 'path';
 import {Model} from '../Models/Model';
 import {IDatabase} from './IDatabase';
 import {LegalCase} from "../Models/LegalCase";
+import {Mode} from "fs";
 
 const util = require('util');
 
@@ -48,8 +49,14 @@ export class FileDatabase implements IDatabase {
     }
 
     public find(id: string): Model | null {
-        const rawData = fs.readFileSync(this.filePath + `/${id}.txt`, 'utf-8');
+        return this.rawFileDataToObject(
+            fs.readFileSync(this.filePath + `/${id}.txt`, 'utf-8')
+        );
+    }
+
+    private rawFileDataToObject(rawData: string) {
         let resultObject = {};
+
         rawData.split('\n').forEach(line => {
             const [key, value] = line.split(': ');
             if (value === 'true') {
@@ -62,6 +69,7 @@ export class FileDatabase implements IDatabase {
                 resultObject[key] = value;
             }
         });
+
         return resultObject;
     }
 
@@ -94,4 +102,26 @@ export class FileDatabase implements IDatabase {
     public readAll(): Model[] {
         return [];
     }
+
+    private readAllFiles = async (dirPath: string): Promise<string[]> => {
+        const fileContents: string[] = [];
+
+        try {
+            const files = await fs.promises.readdir(dirPath);
+
+            const readPromises = files.map(async (file) => {
+                const filePath = path.join(dirPath, file);
+                const content = await fs.promises.readFile(filePath, 'utf-8');
+                fileContents.push(content);
+            });
+
+            await Promise.all(readPromises);
+
+            return fileContents;
+
+        } catch (err) {
+            console.error(`An error occurred: ${err}`);
+            return [];
+        }
+    };
 }
